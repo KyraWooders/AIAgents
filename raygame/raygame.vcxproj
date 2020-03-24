@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="KeyboardBehavior.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />

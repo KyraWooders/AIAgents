@@ -52,9 +52,9 @@ int main()
 		//----------------------------------------------------------------------------------
 		BeginDrawing();
 
-		ClearBackground(RAYWHITE);
+		ClearBackground(MAROON);
 
-		DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+		
 
 		player->draw();
 		enemy->draw();
