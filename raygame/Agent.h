@@ -19,6 +19,9 @@ public:
 	//Add a behavior to the agent
 	void addBehavior(Behavior* behavior);
 
+	//add a force to the agent's vel
+	void addForce(Vector2 force);
+
 	//Movement functions
 	void setPosition(Vector2 position) { m_Position = position; }
 	Vector2 getPosition() { return m_Position; }

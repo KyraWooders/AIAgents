@@ -28,7 +28,7 @@ int main()
 	//--------------------------------------------------------------------------------------
 
 	Agent* player = new Agent();
-	player->setPosition({ 100.0f, 100.0f });
+	player->setPosition({ 600.0f, 600.0f });
 	KeyboardBehavior* keyboardBehavior = new KeyboardBehavior();
 	player->addBehavior(keyboardBehavior);
 
