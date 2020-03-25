@@ -9,5 +9,14 @@ Vector2 KeyboardBehavior::update(Agent* agent, float deltaTime)
 	if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A))    force.x = -500.0f;
 	if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))    force.x = 500.0f;
 
+	/*if (IsKeyDown(KEY_SPACE))
+	{
+		if (agent->getVelocity().x > 1 || agent->getVelocity().x < -1)
+		{
+
+		}
+	}*/
+
+
 	return force;
 }

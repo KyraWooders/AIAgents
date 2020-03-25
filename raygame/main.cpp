@@ -14,6 +14,7 @@
 #include "Behavior.h"
 #include "KeyboardBehavior.h"
 #include "SeekBehavior.h"
+#include "FleeBehavior.h"
 
 int main()
 {
@@ -35,8 +36,10 @@ int main()
 	Agent* enemy = new Agent();
 	enemy->setPosition({ 500.0f, 500.0f });
 	SeekBehavior* seekBehavior = new SeekBehavior();
+	FleeBehavior* fleeBehavior = new FleeBehavior();
 	seekBehavior->setTarget(player);
-	enemy->addBehavior(seekBehavior);
+	fleeBehavior->setTarget(player);
+	enemy->addBehavior(fleeBehavior);
 
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
