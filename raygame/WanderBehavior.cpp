@@ -29,5 +29,4 @@ Vector2 WanderBehavior::update(Agent * agent, float deltaTime)
 	//Return the force
 	return force;
 	
-	return Vector2();
 }
