@@ -25,7 +25,7 @@ void Agent::update(float deltaTime)
 
 void Agent::draw()
 {
-	DrawRectangle(m_Position.x, m_Position.y, 100, 100, BLUE);
+	DrawRectangle(m_Position.x, m_Position.y, 100, 100, m_color);
 }
 
 void Agent::addBehavior(Behavior* behavior)

@@ -16,6 +16,7 @@
 #include "SeekBehavior.h"
 #include "FleeBehavior.h"
 #include "WanderBehavior.h"
+#include "PursuitBehavior.h"
 
 int main()
 {
@@ -31,28 +32,51 @@ int main()
 
 	Agent* player = new Agent();
 	player->setPosition({ 600.0f, 600.0f });
+	player->setSpeed(500.0f);
+	player->setColor(RED);
 	KeyboardBehavior* keyboardBehavior = new KeyboardBehavior();
 	player->addBehavior(keyboardBehavior);
 
-	Agent* enemy = new Agent();
-	enemy->setPosition({ 500.0f, 500.0f });
-	SeekBehavior* seekBehavior = new SeekBehavior();	
-	WanderBehavior* wanderBehavior = new WanderBehavior();
+	Agent* seeker = new Agent();
+	seeker->setPosition({ 500.0f, 500.0f });
+	seeker->setSpeed(250.0f);
+	seeker->setColor(ORANGE);
+	SeekBehavior* seekBehavior = new SeekBehavior();
 	seekBehavior->setTarget(player);	
-	enemy->addBehavior(seekBehavior);
+	seeker->addBehavior(seekBehavior);
 
-	/*Agent* fam = new Agent();
-	fam->setPosition({ 400.0f, 400.0f });
+	Agent* fleer = new Agent();
+	fleer->setPosition({ 400.0f, 400.0f });
+	fleer->setSpeed(20.0f);
+	fleer->setColor(SKYBLUE);
 	FleeBehavior* fleeBehavior = new FleeBehavior();
 	fleeBehavior->setTarget(player);
-	fam->addBehavior(fleeBehavior);*/
+	fleer->addBehavior(fleeBehavior);
+
+	Agent* wander = new Agent();
+	wander->setPosition({ 900.0f, 900.0f });
+	wander->setSpeed(250.0f);
+	wander->setColor(GREEN);
+	WanderBehavior* wanderBehavior = new WanderBehavior();
+	wander->addBehavior(fleeBehavior);
+
+	Agent* pursuer = new Agent();
+	pursuer->setPosition({ 500.0f, 400.0f });
+	pursuer->setSpeed(250.0f);
+	pursuer->setColor(DARKGREEN);
+	PursuitBehavior* pursuitBehavior = new PursuitBehavior();
+	pursuitBehavior->setTarget(player);
+	pursuer->addBehavior(pursuitBehavior);
 
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
 		// Update
 		player->update(GetFrameTime());
-		enemy->update(GetFrameTime());
+		seeker->update(GetFrameTime());
+		fleer->update(GetFrameTime());
+		wander->update(GetFrameTime());
+		pursuer->update(GetFrameTime());
 		//----------------------------------------------------------------------------------
 		// TODO: Update your variables here
 		//----------------------------------------------------------------------------------
@@ -62,11 +86,12 @@ int main()
 		BeginDrawing();
 
 		ClearBackground(MAROON);
-
-		
-		//fam->draw();
+						
 		player->draw();
-		enemy->draw();
+		seeker->draw();
+		fleer->draw();
+		wander->draw();
+		pursuer->draw();
 		
 		EndDrawing();
 		//----------------------------------------------------------------------------------
