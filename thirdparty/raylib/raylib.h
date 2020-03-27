@@ -365,12 +365,12 @@ typedef struct Vector2 {
 	//a normalize vector is the vector divided by its magnitude
 	Vector2 normalize()
 	{		
-		if (x < 1 && x > -1 && y < 1 && y > -1)
+		if (magnitude() != 0)
 		{
-			return Vector2{ x,y };
+			return Vector2{ x / magnitude(),y / magnitude() };
 		}
 
-		return Vector2{ x / magnitude(), y / magnitude() };
+		return Vector2{ x,y };
 	}
 } Vector2;
 

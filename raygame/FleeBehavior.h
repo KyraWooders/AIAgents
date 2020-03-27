@@ -8,6 +8,7 @@ public:
 	virtual ~FleeBehavior() {}
 
 	virtual Vector2 update(Agent* agent, float deltaTime);
+	//the target they will be fleeing from
 	void setTarget(Agent* agent) { m_Target = agent; }
 
 private:

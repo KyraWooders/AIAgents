@@ -41,11 +41,11 @@ int main()
 	seekBehavior->setTarget(player);	
 	enemy->addBehavior(seekBehavior);
 
-	Agent* fam = new Agent();
+	/*Agent* fam = new Agent();
 	fam->setPosition({ 400.0f, 400.0f });
 	FleeBehavior* fleeBehavior = new FleeBehavior();
 	fleeBehavior->setTarget(player);
-	fam->addBehavior(fleeBehavior);
+	fam->addBehavior(fleeBehavior);*/
 
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -64,7 +64,7 @@ int main()
 		ClearBackground(MAROON);
 
 		
-		fam->draw();
+		//fam->draw();
 		player->draw();
 		enemy->draw();
 		
