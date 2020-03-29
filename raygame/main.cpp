@@ -17,6 +17,7 @@
 #include "FleeBehavior.h"
 #include "WanderBehavior.h"
 #include "PursuitBehavior.h"
+#include "EvadeBehavior.h"
 
 int main()
 {
@@ -55,18 +56,26 @@ int main()
 
 	Agent* wander = new Agent();
 	wander->setPosition({ 900.0f, 900.0f });
-	wander->setSpeed(250.0f);
-	wander->setColor(GREEN);
+	wander->setSpeed(80.0f);
+	wander->setColor(LIME);
 	WanderBehavior* wanderBehavior = new WanderBehavior();
 	wander->addBehavior(fleeBehavior);
 
 	Agent* pursuer = new Agent();
 	pursuer->setPosition({ 500.0f, 400.0f });
 	pursuer->setSpeed(250.0f);
-	pursuer->setColor(DARKGREEN);
+	pursuer->setColor(DARKBLUE);
 	PursuitBehavior* pursuitBehavior = new PursuitBehavior();
 	pursuitBehavior->setTarget(player);
 	pursuer->addBehavior(pursuitBehavior);
+
+	Agent* evader = new Agent();
+	evader->setPosition({ 500.0f, 400.0f });
+	evader->setSpeed(250.0f);
+	evader->setColor(DARKGREEN);
+	EvadeBehavior* evadeBehavior = new EvadeBehavior();
+	evadeBehavior->setTarget(player);
+	evader->addBehavior(evadeBehavior);
 
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -77,6 +86,7 @@ int main()
 		fleer->update(GetFrameTime());
 		wander->update(GetFrameTime());
 		pursuer->update(GetFrameTime());
+		evader->update(GetFrameTime());
 		//----------------------------------------------------------------------------------
 		// TODO: Update your variables here
 		//----------------------------------------------------------------------------------
@@ -92,6 +102,7 @@ int main()
 		fleer->draw();
 		wander->draw();
 		pursuer->draw();
+		evader->draw();
 		
 		EndDrawing();
 		//----------------------------------------------------------------------------------

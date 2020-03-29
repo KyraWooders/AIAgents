@@ -1,11 +1,11 @@
 #pragma once
 #include "Behavior.h"
 
-class PursuitBehavior :	public Behavior
+class EvadeBehavior : public Behavior
 {
 public:
-	PursuitBehavior() {}
-	virtual ~PursuitBehavior() {}
+	EvadeBehavior() {}
+	virtual ~EvadeBehavior() {}
 
 	virtual Vector2 update(Agent* agent, float deltaTime);
 	void setTarget(Agent* agent) { m_target = agent; }

@@ -39,6 +39,9 @@
     <ClCompile Include="PursuitBehavior.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EvadeBehavior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PursuitBehavior.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EvadeBehavior.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
