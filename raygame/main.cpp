@@ -14,6 +14,9 @@
 #include "Behavior.h"
 #include "KeyboardBehavior.h"
 #include "FSM.h"
+#include "IdleState.h"
+#include "EnemyAttackState.h"
+#include "WithinRangeCondition.h"
 
 int main()
 {
@@ -40,14 +43,31 @@ int main()
 	enemy->setColor(BROWN);
 	FSM* enemyFSM = new FSM();
 
-
+	enemy->addBehavior(enemyFSM);
+	//Create and add the idle state
+	IdleState* idleState = new IdleState();
+	enemyFSM->addState(idleState);
+	//Create and add the attack state
+	EnemyAttackState* attackState = new EnemyAttackState(player, 250.0f);
+	enemyFSM->addState(attackState);
+	//Create and add the condition
+	Condition* withinRangeCondition = new WithinRangeCondition(player, 200.0f);
+	enemyFSM->addCondition(withinRangeCondition);
+	//Create and add the transition
+	Transition* toAttackTransition = new Transition(attackState, withinRangeCondition);
+	enemyFSM->addTransition(toAttackTransition);
+	idleState->addTransitions(toAttackTransition);
+	//Set current state to idle
+	enemyFSM->setCurrentState(idleState);
 
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
 		// Update
-		player->update(GetFrameTime());
-		
+		float deltaTime = GetFrameTime();
+
+		player->update(deltaTime);
+		enemy->update(deltaTime);
 		//----------------------------------------------------------------------------------
 		// TODO: Update your variables here
 		//----------------------------------------------------------------------------------
@@ -59,7 +79,7 @@ int main()
 		ClearBackground(MAROON);
 						
 		player->draw();
-		
+		enemy->draw();
 		
 		EndDrawing();
 		//----------------------------------------------------------------------------------

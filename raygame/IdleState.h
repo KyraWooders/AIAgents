@@ -3,6 +3,7 @@
 
 class IdleState : public State
 {
+public:
 	IdleState() {}
 	virtual ~IdleState() {}
 
