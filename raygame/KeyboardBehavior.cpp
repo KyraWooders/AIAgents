@@ -3,7 +3,7 @@
 Vector2 KeyboardBehavior::update(Agent* agent, float deltaTime)
 {
 	//find the directon
-	Vector2 direction = { 0,0 };
+	Vector2 direction = { 0.0f,0.0f };
 
 	if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_W))      direction.y = -500.0f;
 	if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S))    direction.y = 500.0f;

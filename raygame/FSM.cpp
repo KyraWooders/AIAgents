@@ -16,12 +16,12 @@ FSM::~FSM()
 	}
 }
 
-bool FSM::execute(Agent * agent, float deltaTime)
+Vector2 FSM::update(Agent * agent, float deltaTime)
 {
 	//stop if we have no current state
 	if (m_currentState == nullptr)
 	{
-		return false;
+		return Vector2{ 0.0f,0.0f };
 	}
 
 	//check if a transition has been triggered
@@ -37,5 +37,5 @@ bool FSM::execute(Agent * agent, float deltaTime)
 
 	//update the current state
 	m_currentState->update(agent, deltaTime);
-	return true;
+	return Vector2{ 0.0f,0.0f };
 }

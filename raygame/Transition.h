@@ -15,7 +15,7 @@ public:
 	bool hasTriggered(Agent* agent) { return m_condition->test(agent); }
 
 private:
-	State* m_target;
+	State*     m_target;
 	Condition* m_condition;
 };
 
