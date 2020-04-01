@@ -131,7 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ABDecision.cpp" />
+    <ClCompile Include="BooleanDecision.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="Condition.cpp" />
@@ -151,7 +151,7 @@
     <ClCompile Include="WithinRangeCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ABDecision.h" />
+    <ClInclude Include="BooleanDecision.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Behavior.h" />
     <ClInclude Include="Condition.h" />
