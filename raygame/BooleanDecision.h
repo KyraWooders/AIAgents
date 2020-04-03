@@ -5,13 +5,14 @@
 class BooleanDecision : public Decision
 {
 public:
+	BooleanDecision(Decision* a, Decision* b, Condition* condition) : m_a(a), m_b(b), m_condition(condition) {}
+
+
 	virtual void makeDecision(Agent* agent, float deltaTime);
 
 private:
-	Decision* a;
-	Decision* b;
-
-protected:
-	virtual bool testCondition(Agent* agent) { return false; }
+	Decision* m_a;
+	Decision* m_b;
+	Condition* m_condition;
 };
 

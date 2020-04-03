@@ -17,6 +17,9 @@
 #include "IdleState.h"
 #include "EnemyAttackState.h"
 #include "WithinRangeCondition.h"
+#include "Decision.h"
+#include "BooleanDecision.h"
+
 
 int main()
 {
@@ -31,7 +34,7 @@ int main()
 	//--------------------------------------------------------------------------------------
 
 	Agent* player = new Agent();
-	player->setPosition({ 600.0f, 600.0f });
+	player->setPosition({ 300.0f, 300.0f });
 	player->setSpeed(500.0f);
 	player->setColor(RED);
 	KeyboardBehavior* keyboardBehavior = new KeyboardBehavior();
@@ -64,10 +67,8 @@ int main()
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
 		// Update
-		float deltaTime = GetFrameTime();
-
-		player->update(deltaTime);
-		enemy->update(deltaTime);
+		player->update(GetFrameTime());
+		enemy->update(GetFrameTime());
 		//----------------------------------------------------------------------------------
 		// TODO: Update your variables here
 		//----------------------------------------------------------------------------------
